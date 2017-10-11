@@ -7,7 +7,7 @@ import {MdDialog} from '@angular/material';
  */
 @Component({
   selector: 'proceedDelete',
-  template: '<button md-button (click)="openDialog()">Open dialog</button>' 
+  template: '<button md-button (click)="openDialog()">Open dialog</button>'
 })
 export class ProceedDelete {
   constructor(public dialog: MdDialog) {}
@@ -25,7 +25,10 @@ export class ProceedDelete {
 
 @Component({
   selector: 'proceedDeleteDialog',
-  template: '<button md-button (click)="openDialog()">Open dialog</button>' 
+  template: '<button md-button (click)="openDialog()">Open dialog</button>'
 })
-export class ProceedDeleteDialog {}
+export class ProceedDeleteDialog {
+
+  openDialog() {}
+}
 

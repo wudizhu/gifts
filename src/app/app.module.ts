@@ -28,7 +28,8 @@ import { OverlayContainer, MdTabsModule } from "@angular/material";
 import {SearchFilter} from './pipes/search.pipe';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { MdDialogModule } from '@angular/material';
-import { ProceedDelete, ProceedDeleteDialog } from 'app/gifts/preceedDeleteDialog.component';
+import { ProceedDeleteDialog } from 'app/gifts/preceedDeleteDialog.component';
+import {OrderByPipe}  from './pipes/orderBy.pipe';
 
 
 
@@ -57,7 +58,7 @@ export const firebaseConfig = {
     GiftSearchComponent,
     GiftesComponent,
     SearchFilter,
-    ProceedDelete,
+    OrderByPipe,
     ProceedDeleteDialog
   ],
   imports: [
@@ -89,6 +90,6 @@ export const firebaseConfig = {
 })
 export class AppModule {
     constructor(overlayContainer: OverlayContainer) {
-    overlayContainer.themeClass = 'dark-theme';
+    // overlayContainer.themeClass = 'dark-theme';
   }
 }

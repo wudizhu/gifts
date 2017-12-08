@@ -1,7 +1,170 @@
 button.delete-button {
-  background-color: lightgray;
-  /* border: 2px solid grey; */
-  border-radius: 5px;
+    background-color: lightgray;
+    /* border: 2px solid grey; */
+    border-radius: 5px;
+}
+
+img.meeting-img {
+    width: 30%;
+    border-radius: 5%;
+    max-width: 300px;
+    min-width: 50px;
+    max-height: 80px;
+}
+
+
+.heading {
+    font-size: 40px;
+    font-family: Acme;
+    color: #3E2723;
+    margin: 0px 0px 0px 35px;
+}
+
+.meeting-text {
+    font-family: Signika;
+    color: black;
+    font-size: 500%;
+
+}
+
+/* .mat-card {
+  background-image: url("../../assets/textures/texture1.jpg");
+} */
+
+
+.mat-card-header .mat-card-title {
+    font-size: x-large;
+    color: black;
+}
+
+
+.accent {
+    color: #ff5722;
+}
+
+.full-width {
+    width: 95%;
+}
+
+.word-wrap {
+    overflow-wrap: break-word;
+}
+
+.meeting-description {
+  max-width: 100%
+}
+
+.page-container {
+    margin-top: 30px;
+}
+
+.action-bar {
+    margin-top: 50px;
+}
+
+.sort-bar {
+    margin: 0px 35px 0px 35px;
+}
+
+.search-bar {
+    margin: 0px 35px 0px 35px;
+}
+
+.logo {
+    margin: 0px 10px 0px 10px;
+}
+
+/*MD card container*/
+
+.card-container {
+    border: 2px solid #ccc;
+    max-width: 100%;
+    margin-bottom: 20px;
+    margin-left: 35px;
+    box-shadow: 0 5px 5px 0;
+}
+
+.card-container:hover {
+    border: 2px solid darkslategray;
+}
+
+.card-container img {
+    border-radius: 5%;
+}
+
+.card-container .title {
+    font-size: 2em;
+}
+
+.card-container .login-button {
+    font-size: 2em;
+    padding: 0.5em 3em 0.5em 3em;
+}
+
+.card-error {
+    max-width: 279px;
+    overflow-wrap: break-word;
+}
+
+.spacer {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+}
+
+@media only screen and (max-width: 800px) {
+    .card-container {
+        min-width: 60%;
+    }
+    .action-bar {
+        margin-top: 10px;
+    }
+    .sort-bar {
+        margin: 0px 0px 0px 15px;
+    }
+    .search-bar {
+        margin: 0px 0px 0px 15px;
+    }
+    .heading {
+        margin: 0px 0px 0px 15px;
+    }
+    .mat-card-header .mat-card-title {
+        font-size: large;
+    }
+    .meeting-description {
+        max-width: 70%;
+    }
+
+    .card-container {
+      margin-left: 15px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .card-container {
+        min-width: 90%;
+    }
+    .action-bar {
+        margin-top: 10px;
+    }
+    .sort-bar {
+        margin: 0px 0px 0px 5px;
+    }
+    .search-bar {
+        margin: 0px 0px 0px 5px;
+    }
+    .heading {
+        margin: 0px 0px 0px 5px;
+    }
+    .mat-card-header .mat-card-title {
+        font-size: medium;
+    }
+    .meeting-description {
+        max-width: 50%;
+    }
+    .card-container {
+      margin-left: 5px;
+    }
 }
 
 img.gift-img  {
@@ -10,16 +173,6 @@ img.gift-img  {
    max-width: 414px;
    min-width:100px;
 }
-
-
-.full-width {
-  width: 90%;
-}
-
-.word-wrap {
-  overflow-wrap: break-word;
-}
-
 
 
 

@@ -1,34 +1,18 @@
 import {Component} from '@angular/core';
-import {MdDialog} from '@angular/material';
-
-
-/**
- * @title Dialog with header, scrollable content and actions
- */
-@Component({
-  selector: 'proceedDelete',
-  template: '<button md-button (click)="openDialog()">Open dialog</button>'
-})
-export class ProceedDelete {
-  constructor(public dialog: MdDialog) {}
-
-  openDialog() {
-    const dialogRef = this.dialog.open(ProceedDeleteDialog, {
-      height: '350px'
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
-}
+import { MdDialog, MdDialogRef } from '@angular/material';
 
 @Component({
   selector: 'proceedDeleteDialog',
-  template: '<button md-button (click)="openDialog()">Open dialog</button>'
+  templateUrl: 'dialog.html'
 })
 export class ProceedDeleteDialog {
+  constructor (public dialogRef: MdDialogRef<ProceedDeleteDialog>){}
 
-  openDialog() {}
+    onYesClick() : void {
+      this.dialogRef.close(true);
+    }
+
+    onNoClick(): void {
+    this.dialogRef.close(false);
+  }
 }
-

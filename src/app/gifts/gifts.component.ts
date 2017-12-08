@@ -15,6 +15,9 @@ import "rxjs/add/operator/switchMap";
 import { GiftStatus } from "./gift-status";
 import { Logger } from "app/providers/logger.service";
 import { Filter } from "app/gifts/filter";
+import {ProceedDeleteDialog} from 'app/gifts/preceedDeleteDialog.component';
+import { MdDialog, MdDialogRef } from '@angular/material';
+
 
 
 @Component({
@@ -31,11 +34,23 @@ export class GiftesComponent implements OnInit {
   private searchTerms = new Subject<Filter>();
 
   addingGift: boolean;
-  searchingGifts: boolean;
   newGift: GiftData;
   editingGift: GiftStatus = new GiftStatus();
   user: string;
-  proceedToDelete: boolean = false;
+  proceedToDelete: boolean;
+
+  searchText: string = "";
+  sortingProperty: string = "desiredRating";
+  isDesc: boolean = true;
+  direction: number = this.isDesc ? -1 : 1;
+  sortingOrder: string = "Most Desired";
+
+  // Change sort function to this:
+  sort() {
+    this.isDesc = !this.isDesc; //change the direction
+    this.direction = this.isDesc ? -1 : 1;
+    this.sortingOrder = this.isDesc ? "Most Desired" : "Least Desired";
+  }
 
   //push a search term into the observable stream.
   search(term: string, recieved: boolean): void {
@@ -47,8 +62,8 @@ export class GiftesComponent implements OnInit {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     this.logger.log("loading gifts!");
+    this.proceedToDelete = false;
     this.addingGift = false;
-    this.searchingGifts = false;
     this.editingGift.PictureURL = false;
     this.newGift = new GiftData();
 
@@ -88,7 +103,22 @@ export class GiftesComponent implements OnInit {
     private giftFirebaseService: GiftFirebaseService,
     private route: ActivatedRoute,
     private logger: Logger,
+    public dialog: MdDialog
   ) {}
+
+  openDialog(gift : GiftData) {
+    let dialogRef = this.dialog.open(ProceedDeleteDialog, {
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.proceedToDelete = result;
+      if (this.proceedToDelete === true) {
+        this.logger.log("Proceed to delete gift is: " + this.proceedToDelete);
+        this.logger.log("Proceed to delete gift with data: "+ JSON.stringify(gift));
+        this.delete(gift);
+      }
+    });
+  }
 
   getGifts(
     person,
@@ -244,20 +274,8 @@ export class GiftesComponent implements OnInit {
   expandAddingGift(): void {
     this.addingGift = true;
   }
-  expandSearchingGift(): void {
-    this.searchingGifts = true;
-    this.showRecieved = false;
-    this.search(null, this.showRecieved);
 
-  }
-
-  exitSearch(): void {
-    this.searchingGifts = false;
-    this.showRecieved = false;
-    this.search(null, this.showRecieved);
-  }
-
-  editSwitch(status: GiftStatus): void {
+   editSwitch(status: GiftStatus): void {
     this.editingGift = status;
   }
 

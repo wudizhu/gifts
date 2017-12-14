@@ -2,7 +2,6 @@ import { Logger } from './providers/logger.service';
 import { GiftFirebaseService } from './providers/gift.firebaseService';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './providers/in-memory-data.service';
-import { GiftHttpService } from './providers/gift.httpService';
 import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule, animate } from '@angular/core';
@@ -19,9 +18,6 @@ import { MembersComponent } from './members/members.component';
 import { AuthGuard, AuthService } from './providers/auth.service';
 import { AppRoutingModule } from './app-routing.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { GiftDetailComponent } from './gift-detail/gift-detail.component';
-import { GiftSearchComponent } from './gift-search/gift-search.component';
 import { GiftesComponent } from './gifts/gifts.component';
 import {MdSliderModule, MdSlideToggleModule, MdButtonModule, MdCardModule, MdMenuModule, MdToolbarModule, MdIconModule, MdInputModule} from '@angular/material';
 import { OverlayContainer, MdTabsModule } from "@angular/material";
@@ -53,9 +49,6 @@ export const firebaseConfig = {
     SignupComponent,
     MembersComponent,
     PageNotFoundComponent,
-    DashboardComponent,
-    GiftDetailComponent,
-    GiftSearchComponent,
     GiftesComponent,
     SearchFilter,
     OrderByPipe,
@@ -85,7 +78,7 @@ export const firebaseConfig = {
   entryComponents: [
     ProceedDeleteDialog
   ],
-  providers: [AuthGuard, AuthService, GiftHttpService, InMemoryDataService, GiftFirebaseService, AngularFireAuth, AngularFireDatabase, Logger],
+  providers: [AuthGuard, AuthService, InMemoryDataService, GiftFirebaseService, AngularFireAuth, AngularFireDatabase, Logger],
   bootstrap: [AppComponent]
 })
 export class AppModule {

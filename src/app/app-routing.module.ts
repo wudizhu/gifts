@@ -1,5 +1,3 @@
-import { GiftDetailComponent } from './gift-detail/gift-detail.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { GiftesComponent } from './gifts/gifts.component';
 import { AppComponent } from './app.component';
 import { NgModule }      from '@angular/core';
@@ -31,11 +29,6 @@ const routes: Routes = [
     {
       path: 'gifts/:person',
       component: GiftesComponent
-    },
-    { path: 'dashboard', component: DashboardComponent },
-    {
-      path: 'detail/:id',
-      component: GiftDetailComponent
     },
     { path: '**', component: PageNotFoundComponent },
 

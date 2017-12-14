@@ -3,7 +3,6 @@ import { Logger } from './logger.service';
 import { GiftData } from './../gifts/giftdata';
 import { AngularFireDatabase, FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2/database';
 import { Injectable } from '@angular/core';
-import { Gift } from '../gifts/gift';
 import 'rxjs/add/operator/toPromise';
 
 

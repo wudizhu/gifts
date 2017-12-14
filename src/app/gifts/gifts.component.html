@@ -94,9 +94,7 @@
 
         <span *ngIf="!editingGift.PictureURL">         
           <span mdSuffix>&nbsp;</span> 
-         <button md-icon-button>
           <md-icon mdSuffix (click)="editSwitchPictureURL(true)">mode_edit</md-icon>
-        </button>
         </span>
         <md-input-container class="full-width word-wrap" *ngIf="editingGift.PictureURL">
           <textarea mdTextareaAutosize mdAutosizeMinRows="3" mdInput #url maxlength="2000" placeholder="The link (URL) of the gift picture"

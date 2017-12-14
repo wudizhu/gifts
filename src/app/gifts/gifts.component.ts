@@ -7,7 +7,6 @@ import {
 import { Component, Pipe } from "@angular/core";
 import { OnInit } from "@angular/core";
 import { GiftData } from "./giftdata";
-import { GiftHttpService } from "../providers/gift.httpService";
 import { GiftFirebaseService } from "../providers/gift.firebaseService";
 import { Router, ActivatedRoute, Params } from "@angular/router";
 import "rxjs/add/operator/map";
@@ -99,7 +98,6 @@ export class GiftesComponent implements OnInit {
 
   constructor(
     // private router: Router,
-    private giftService: GiftHttpService,
     private giftFirebaseService: GiftFirebaseService,
     private route: ActivatedRoute,
     private logger: Logger,

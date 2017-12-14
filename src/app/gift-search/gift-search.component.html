@@ -1,9 +1,0 @@
-<div id="search-component">
-  <input placeholder="Serach gifts" #searchBox id="search-box" (keyup)="search(searchBox.value)" />
-  <div>
-    <div *ngFor="let gift of gifts | async"
-         (click)="gotoDetail(gift)" class="search-result" >
-      {{gift.name}}
-    </div>
-  </div>
-</div>
